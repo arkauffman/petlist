@@ -9,6 +9,7 @@ import {
 // import API from '../api/api';
 import SearchPage from './SearchPage/SearchPage';
 import API from './../web-api/search.json';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -28,20 +29,22 @@ class App extends Component {
   }
 
   render() {
-    console.log('PETS', this.state.pets)
     return (
         <div>
         
             <Router>
                 <Switch>
-                    <Route path='/static/search.json/' render={() => 
+                    <Route path='/static/search.json' render={() => 
                         <SearchPage pets={this.state.pets} />
                     } />
-                        <Link to='/static/search.json'>Search Pets</Link>
-
-                    {/* <Route exact path='/static/' render={() => 
-                        <SearchPage /> 
+                    {/* <Route exact path='/static/search.json?service=boarding' render={() => 
+                        <SearchPage pets={this.state.pets} />
+                    } />
+                    <Route exact path='/static/search.json?service=sitting' render={() => 
+                        <SearchPage pets={this.state.pets} />
                     } /> */}
+                    
+                    <Link to='/static/search.json'>Search Pets</Link>
                 </Switch>
             </Router>
         </div>
